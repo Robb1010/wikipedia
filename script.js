@@ -15,7 +15,7 @@
         // Calling the API and returning the search results
         $.ajax({
           type: "GET",
-          url: 'http://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=' + search + '&callback=?',
+          url: 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=' + search + '&callback=?',
           contentType: "application/json; charset=utf-8",
           async: false,
           dataType: "json",
@@ -32,8 +32,7 @@
         });
       },
       article: function(page) {
-        return ('http://en.wikipedia.org/?curid=' + page);
+        return ('https://en.wikipedia.org/?curid=' + page);
       }
-
     }
   });
