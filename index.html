@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body class="grey">
+  <div id="app" class="container">
+    <h1 class="grey darken-4 white-text text-darken-1 z-depth-3">Wikipedia</h1>
+    <div class="input-field active">
+      <i @click="search" class="material-icons prefix icon-blue">search</i>
+      <input id="icon_prefix" type="text" class="validate" v-model="input" @keyup.enter="search">
+    </div>
+    <ul id="list">
+      <li v-for="result in results">
+        <div class="card grey darken-4 z-depth-1">
+          <div class="card-content white-text card-action">
+            <span class="card-title">{{result.title}}</span>
+            <span v-html="result.snippet"></span><span>...</span>
+            <br>
+            <a v-bind:href="article(result.pageid)" target="_blank" id="article">READ MORE</a>
+          </div>
+      </li>
+    </ul>
+
+    <div class="card grey darken-4 article z-depth-1" id="article">
+      <div class="card-content white-text">
+        <span class="card-title"><b>{{article.title}}</b></span>
+        <p v-html="article"></p>
+      </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- Compiled and minified CSS -->
+<script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
